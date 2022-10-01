@@ -15,7 +15,8 @@ public class Main extends Game {
 	protected SpriteBatch batch;
 	public static final boolean HITBOXES = false;
 
-	public static final float SPRITE_SCALE = 4.0f;
+	public static final float SPRITE_SCALE = 2.0f;
+	public static final float SPRITE_SPEED_SCALE = 1.0f;
 
 	public Handler handler;
 

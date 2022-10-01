@@ -31,5 +31,5 @@ public abstract class GameObject {
 
     public abstract Rectangle getRectangle();
 
-
+    public abstract void receiveNotification(AnimationNotification notification, String animation);
 }

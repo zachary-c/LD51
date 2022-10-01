@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
+import static house.pringle.ludumdare.AnimationNotification.*;
+
 import java.util.HashMap;
 
 public class Animator {
@@ -17,7 +19,8 @@ public class Animator {
     // maps names of animations ("anna_left", "anna_right") to the appropriate Animation Object (a sequence of TextureRegions, really)
     private HashMap<String,Animation<TextureRegion>> animations;
     // keeps track of the current animation that should be playing; the string is a key in the above hashmap
-    private String currentAnim;
+    private String currentAnimationName;
+    private Animation<TextureRegion> currentAnimation;
     private float width, height;
     private float stateTime = 0.0f;
 
@@ -43,21 +46,26 @@ public class Animator {
         }
 
     }
-    public String getCurrentAnim() { return currentAnim; }
+    public String getCurrentAnimationName() { return currentAnimationName; }
 
-    public void addAnimationByRegion(TextureAtlas atlas, String name) {
+    public void resetStateTime() {
+        stateTime = 0;
+    }
+
+    public void addAnimationByRegion(TextureAtlas atlas, String name, Animation.PlayMode looping) {
         // This line takes the given atlas (large sprite file) and loads the animation with the give name ("anna_left_0", "anna_left_1), etc
-        Animation<TextureRegion> temp = new Animation<TextureRegion>(frameDuration, atlas.findRegions(name), Animation.PlayMode.LOOP);
+        Animation<TextureRegion> temp = new Animation<TextureRegion>(frameDuration, atlas.findRegions(name), looping);
         // then we put it into the animation hashmap paired with its name
         animations.put(name, temp);
 
         // if we don't have an animation already
-        if (currentAnim == null) {
+        if (currentAnimationName == null) {
             // get one, any of them
-            currentAnim = animations.keySet().iterator().next();
+            currentAnimationName = animations.keySet().iterator().next();
+            currentAnimation = animations.get(currentAnimationName);
             // gets an animation,
-            height = animations.get(currentAnim).getKeyFrame(0).getRegionHeight() * Main.SPRITE_SCALE;
-            width = animations.get(currentAnim).getKeyFrame(0).getRegionWidth() * Main.SPRITE_SCALE;
+            height = currentAnimation.getKeyFrame(0).getRegionHeight() * Main.SPRITE_SCALE;
+            width = currentAnimation.getKeyFrame(0).getRegionWidth() * Main.SPRITE_SCALE;
         }
     }
     public void setAnimationSpeed(String name, float frameDuration) {
@@ -68,7 +76,16 @@ public class Animator {
         stateTime += Gdx.graphics.getDeltaTime(); // Accumulate elapsed animation time
 
         // Get current frame of animation for the current stateTime
-        currentFrame = animations.get(currentAnim).getKeyFrame(stateTime, true);
+        if (currentAnimation.getPlayMode() == Animation.PlayMode.NORMAL) {
+            currentFrame = currentAnimation.getKeyFrame(stateTime, false);
+
+            // Here, if the animation is finished we let the gameObject know so it can react appropriately
+            if (currentAnimation.isAnimationFinished(stateTime)) {
+                owner.receiveNotification(JUMP_ANIMATION_FINISH, currentAnimationName);
+            }
+        } else {
+            currentFrame = currentAnimation.getKeyFrame(stateTime, true);
+        }
 
         batch.draw(currentFrame, owner.getX(), owner.getY(), width*Main.SPRITE_SCALE, height*Main.SPRITE_SCALE); // Draw current frame at the owner's x and y coords
 
@@ -87,16 +104,11 @@ public class Animator {
         return new Rectangle(owner.getX()+(width*.1f), owner.getY()+(height*.1f), width*.8f, height*.8f);
     }
 
-    public float getWidth() {
-        return width;
+    public void setCurrentAnimation(String currentAnimationName) {
+        this.currentAnimationName = currentAnimationName;
+        this.currentAnimation = animations.get(currentAnimationName);
     }
-
-    public float getHeight() {
-        return height;
-    }
-
-    public void setCurrentAnim(String currentAnim) {
-        // for changing what animation is playing
-        this.currentAnim = currentAnim;
+    public int getCurrentFrameIndex() {
+        return currentAnimation.getKeyFrameIndex(stateTime);
     }
 }

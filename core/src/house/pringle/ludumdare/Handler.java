@@ -8,29 +8,41 @@ public class Handler {
     public final Main game;
 
     private ArrayList<GameObject> gameObjects;
-    private Player player;
+    private Player kaladin;
+    private Player ironhorn;
+    private Player currentPlayer;
 
     public Handler(Main game){
         this.game = game;
         gameObjects = new ArrayList<>();
 
-        player = new Player(0, 0);
+        kaladin = new Player(0, 10, 4.0, true);
+        ironhorn = new Player(300, 10, 4.0, false);
+        currentPlayer = ironhorn;
 
-        gameObjects.add(player);
+        gameObjects.add(kaladin);
+        gameObjects.add(ironhorn);
     }
 
     public void render(SpriteBatch batch) {
         for (GameObject o : gameObjects) {
             o.render(batch);
         }
+        
     }
 
     public ArrayList<GameObject> getGameObject() {
         return gameObjects;
     }
 
+    public Player getKaladin() {
+        return kaladin;
+    }
+    public Player getIronhorn() {
+        return ironhorn;
+    }
     public Player getPlayer() {
-        return player;
+        return currentPlayer;
     }
 
     public void dispose() {

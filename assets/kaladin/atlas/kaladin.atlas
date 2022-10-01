@@ -1,130 +1,160 @@
 
 kaladin.png
-size: 128, 128
+size: 1024, 64
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
-walk/kaladin_walk_l
-  rotate: false
-  xy: 2, 70
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 0
-walk/kaladin_walk_l
-  rotate: false
-  xy: 2, 36
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 1
-walk/kaladin_walk_l
-  rotate: false
-  xy: 36, 70
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 2
-walk/kaladin_walk_l
-  rotate: false
-  xy: 2, 2
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 3
-walk/kaladin_walk_r
-  rotate: false
-  xy: 36, 36
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 0
-walk/kaladin_walk_r
-  rotate: false
-  xy: 70, 70
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 1
-walk/kaladin_walk_r
-  rotate: false
-  xy: 36, 2
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 2
-walk/kaladin_walk_r
-  rotate: false
-  xy: 70, 36
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 3
-
-kaladin2.png
-size: 128, 64
-format: RGBA8888
-filter: Nearest, Nearest
-repeat: none
-keep_alive/kaladin_ka_r
+kaladin_fall_l
   rotate: false
   xy: 2, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 0
-keep_alive/kaladin_ka_r
+kaladin_fall_l
   rotate: false
   xy: 36, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 1
-
-kaladin3.png
-size: 256, 64
-format: RGBA8888
-filter: Nearest, Nearest
-repeat: none
-jump/kaladin_jump_l
-  rotate: false
-  xy: 2, 2
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 0
-jump/kaladin_jump_l
-  rotate: false
-  xy: 36, 2
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: 1
-jump/kaladin_jump_l
+kaladin_fall_r
   rotate: false
   xy: 70, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
-  index: 2
-jump/kaladin_jump_r
+  index: 0
+kaladin_fall_r
   rotate: false
   xy: 104, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
-  index: 0
-jump/kaladin_jump_r
+  index: 1
+kaladin_jump_l
   rotate: false
   xy: 138, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
-  index: 1
-jump/kaladin_jump_r
+  index: 0
+kaladin_jump_l
   rotate: false
   xy: 172, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
+  index: 1
+kaladin_jump_l
+  rotate: false
+  xy: 206, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
   index: 2
+kaladin_jump_r
+  rotate: false
+  xy: 240, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 0
+kaladin_jump_r
+  rotate: false
+  xy: 274, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+kaladin_jump_r
+  rotate: false
+  xy: 308, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+kaladin_ka_l
+  rotate: false
+  xy: 342, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 0
+kaladin_ka_l
+  rotate: false
+  xy: 376, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+kaladin_ka_r
+  rotate: false
+  xy: 410, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 0
+kaladin_ka_r
+  rotate: false
+  xy: 444, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+kaladin_walk_l
+  rotate: false
+  xy: 478, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 0
+kaladin_walk_l
+  rotate: false
+  xy: 512, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+kaladin_walk_l
+  rotate: false
+  xy: 546, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+kaladin_walk_l
+  rotate: false
+  xy: 580, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+kaladin_walk_r
+  rotate: false
+  xy: 614, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 0
+kaladin_walk_r
+  rotate: false
+  xy: 648, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+kaladin_walk_r
+  rotate: false
+  xy: 682, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+kaladin_walk_r
+  rotate: false
+  xy: 716, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
