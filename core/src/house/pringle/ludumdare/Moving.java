@@ -1,12 +1,20 @@
 package house.pringle.ludumdare;
 
-public abstract class GameObject {
+public abstract class Moving extends GameObject {
 
-    protected int x;
-    protected int y;
+    protected double velX;
+    protected double velY;
 
-    public GameObject(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Moving(int x, int y, double velX, double velY) {
+        super(x, y);
+        this.velX = velX;
+        this.velY = velY;
+    }
+
+    public void setVelX(double velX) {
+        this.velX = velX;
+    }
+    public void setVelY(double velY) {
+        this.velY = velY;
     }
 }
